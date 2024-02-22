@@ -10,7 +10,8 @@ First, I'll describe the scenario we are working with. This is a low budget (alm
 
 The goal is to build a system that meets the following criteria:
   - There must be a paid support option available for the deployed solution with no less than 5 years of support from the date of installation (though the paid support does not have to be active at the time of deployment).
-  - The solution must have a fully documented implementation process to make rebuilding the solution from scratch as seamless as   - There must be redundancy in the firewall/router setup. The preferred setup is to have automatic failover, but load-balancing is not necessary.
+  - The solution must have a fully documented implementation process to make rebuilding the solution from scratch as seamless as possible.
+  - There must be redundancy in the firewall/router setup. The preferred setup is to have automatic failover, but load-balancing is not necessary.
   - There must be redundancy in the upstream ISP connectivity. Connections are allowed to drop when an ISP fails, but users need to be able to establish new connections within 60 seconds of failure.
   - The solution must support IPv4 and IPv6.
   - The solution must be able to accommodate a small number of essential services that depend on local servers, including VOIP/SIP.
