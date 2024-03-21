@@ -6,6 +6,8 @@ I've undertaken a project where I am helping an educational entity build and dep
 
 This page will be updated as the project progresses. The page was first published November 6, 2023.
 
+Update: [February Update on High-Availability Project](https://bradley-coder7.github.io/ubuntu/2024/02/22/update.html)
+
 First, I'll describe the scenario we are working with. This is a low budget (almost "no budget") project due to extremely limited resources of the organization I'm working with. The organization currently has two ISP connections available. One is funded by federal money, and the other is a "free" community connection courtesy of Google Fiber. Only the paid connection is in active use. The organization is relying on a single Debian-based firewall that is several years old. The organization's LAN spans several buildings, and it has been divided into VLANs for various applications (security cameras, HVAC, WiFi, etc.). Two new Dell servers have already been purchased for this project along with Intel 350 NICs (which have 4x 1Gbe copper ports). The LAN currently rides over somewhat dated Juniper EX switches, but has a 10Gb fiber backbone between buildings and all edge ports are 1Gbe copper.
 
 The goal is to build a system that meets the following criteria:
