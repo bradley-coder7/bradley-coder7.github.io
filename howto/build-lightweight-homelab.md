@@ -10,7 +10,7 @@ order: 2
 
 ## Introduction
 
-This how-to guide walks you through building an extremely lightweight test lab (or homelab). There are many ways to build and run a test lab, and all have their pros and cons, and some labs are more or less suitable for differet applications. This variation can run very well on an inexpensive spare workstation and easily handle several virtual machines. The how-to was built on a refurbished machine with a 4-core Intel I7 processor, 32 GB of RAM, a PCIe 2.5GbE network card, and 1.5TB of storage drives. For a fuller explanation of the design decisions for this particular setup, see the separate article titled [Designing My Homelab Configuration](/posts/2024-03-27-designing-homelab).
+This how-to guide walks you through building an extremely lightweight test lab (or homelab). There are many ways to build and run a test lab, and all have their pros and cons, and some labs are more or less suitable for differet applications. This variation can run very well on an inexpensive spare workstation and easily handle several virtual machines. The how-to was built on a refurbished machine with a 4-core Intel I7 processor, 32 GB of RAM, a PCIe 2.5GbE network card, and 1.5TB of storage drives. For a fuller explanation of the design decisions for this particular setup, see the separate article titled [Designing My Homelab Configuration](https://bradley-coder7.github.io/ubuntu,/homelab/2024/03/27/designing-homelab.html).
 
 ## Unsuitable Uses for this Test Lab Configuration
 
