@@ -10,7 +10,7 @@ categories: Ubuntu, Homelab
 
 ## Introduction
 
-This how-to guide walks you through building an extremely lightweight test lab (or homelab). There are many ways to build and run a test lab, and all have their pros and cons, and some labs are more or less suitable for differet applications. This variation can run very well on an inexpensive spare workstation and easily handle several virtual machines. The how-to was built on a refurbished machine with a 4-core Intel I7 processor, 32 GB of RAM, a PCIe 2.5GbE network card, and 1.5TB of storage drives. For a fuller explanation of the design decisions for this particular setup, see the separate article titled Designing My Homelab Configuration #TODO: insert link.
+This how-to guide walks you through building an extremely lightweight test lab (or homelab). There are many ways to build and run a test lab, and all have their pros and cons, and some labs are more or less suitable for differet applications. This variation can run very well on an inexpensive spare workstation and easily handle several virtual machines. The how-to was built on a refurbished machine with a 4-core Intel I7 processor, 32 GB of RAM, a PCIe 2.5GbE network card, and 1.5TB of storage drives. For a fuller explanation of the design decisions for this particular setup, see the separate article titled [Designing My Homelab Configuration](/posts/2024-03-27-designing-homelab).
 
 ## Unsuitable Uses for this Test Lab Configuration
 
@@ -22,7 +22,7 @@ This is strictly a test lab configuration, and it should not be considered suita
 
 ## Step 0: Required Knowledge, Materials, and Information
 
-This how-to does not require you to have deep technical knowledge of many topics, and the steps can be followed with basic competency. However, a basic understanding of IPv4 classless inter-domain routing (CIDR) <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation> notation is necessary to successfully modify the example addresses provided.
+This how-to does not require you to have deep technical knowledge of many topics, and the steps can be followed with basic competency. However, a basic understanding of [IPv4 classless inter-domain routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation) notation is necessary to successfully modify the example addresses provided.
 
 This how-to is about building a test lab on bare-metal hardware. To follow this tutorial, you will need the following minimum hardware:
 
