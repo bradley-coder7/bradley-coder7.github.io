@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "How-to: Build a Lightweight Homelab on Ubuntu Server 22.04 LTS"
-date: 2024-03-27 00:00:00 -0500
+date: 2024-03-27 00:00:00 -0600
 categories: Ubuntu, Homelab
 ---
 
