@@ -40,7 +40,7 @@ The following information will be necessary to complete the installation:
 
 1. The configuration information for your existing functional network, including the subnet address, mask, gateway address, and at least one resolver address.
 
-    - This how-to uses 192.0.2.0 for the existing subnet address, a 24-bit network mask (255.255.255.0), a gateway of 192.0.2.1, and resolvers of 192.0.2.2 and 192.0.2.3. Substitute your existing network configuration information anywhere you encounter these values throughout this document.
+    - This how-to uses 192.0.2.0 for the existing subnet address, a 24-bit network mask (255.255.255.0), a gateway of 192.0.2.1, and local resolvers of 192.0.2.30 and 192.0.2.31. Real publicly available resolvers of 1.1.1.3 and 1.0.0.3 are used until local resolvers are setup in subsequent how-tos. Substitute your existing network configuration information anywhere you encounter these values throughout this document.
 
 2. The available IPv4 addresses on your existing network you will be using for the test lab. A group of 16 addresses will be adequate for most use cases. A range that matches a CIDR boundary is recommended.
 
