@@ -2,7 +2,6 @@
 layout: page
 title: "How-to: Build a Lightweight Homelab on Ubuntu Server 22.04 LTS"
 date: 2024-03-27 00:00:00 -0500
-categories: Ubuntu, Homelab
 exclude: true
 order: 2
 ---
@@ -79,7 +78,7 @@ The following information will be necessary to complete the installation:
 
 There are many detailed [tutorials for installing Ubuntu Server](https://ubuntu.com/tutorials/install-ubuntu-server). Refer to those tutorials if you need to deviate from the standard options presented here for the simplest setup.
 
-> *WARNING:* This procedure will repartition and reformat the storage device on the machine, making any existing data difficult or impossible to recover. Do not follow this procedure on a machine containing data you need to keep.
+> **WARNING:** This procedure will repartition and reformat the storage device on the machine, making any existing data difficult or impossible to recover. Do not follow this procedure on a machine containing data you need to keep.
 
 Follow these steps to install Ubuntu Server 22.04 LTS
 
