@@ -3,8 +3,8 @@ layout: page
 title: "How-to: Build a Lightweight Homelab on Ubuntu Server 22.04 LTS"
 date: 2024-03-27 00:00:00 -0500
 categories: Ubuntu, Homelab
-weight: 10
-menu: howto
+exclude: true
+order: 2
 ---
 
 > NOTE: This how-to is still in active development and will be updated with significant additions in March and April 2024. It was committed for publication so that certain interested parties could see it in the present condition. Sections marked with TODO are still in early draft stages.
