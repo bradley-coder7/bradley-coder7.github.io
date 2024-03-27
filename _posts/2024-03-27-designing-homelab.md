@@ -2,7 +2,6 @@
 layout: post
 title: "Designing My Homelab Configuration"
 date: 2024-03-27 01:00:00 -0500
-categories: Ubuntu, Homelab
 ---
 I needed a homelab to test things for my project described over in [Ubuntu 22.04 LTS High Availability Router/Firewall with Two ISPs](https://bradley-coder7.github.io/2023/11/06/firstpost.html). This post explains the process of how I designed my homelab setup. In other articles, I will provide details on the step-by-step instructions I used for building the homelab and simulating the high-availability environment I was working on. This post will be updated with links when those articles are completed.
 
