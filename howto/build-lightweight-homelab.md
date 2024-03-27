@@ -1,10 +1,9 @@
 ---
 layout: page
-title: "Build a Lightweight Homelab on Ubuntu Server 22.04 LTS"
+title: "How-to: Build a Lightweight Homelab on Ubuntu Server 22.04 LTS"
 date: 2024-03-27 00:00:00 -0500
 categories: Ubuntu, Homelab
 ---
-# How to Build a Lightweight Test Lab on Ubuntu Server 22.04 LTS
 
 > NOTE: This how-to is still in active development and will be updated with significant additions in March and April 2024. It was committed for publication so that certain interested parties could see it in the present condition. Sections marked with TODO are still in early draft stages.
 
