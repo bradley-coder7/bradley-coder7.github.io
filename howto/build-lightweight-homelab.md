@@ -21,7 +21,7 @@ This test lab requires users to have fairly high privileges on the bare-metal sy
 
 This is strictly a test lab configuration, and it should not be considered suitable for production or mission-critical usage. It lacks critical production components like redundancy and backup mechanisms. Such modifications could easily be added, but are well beyond the scope of this how-to.
 
-## Step 0: Required Knowledge, Materials, and Information
+## Preliminaries: Required Knowledge, Materials, and Information
 
 This how-to does not require you to have deep technical knowledge of many topics, and the steps can be followed with basic competency. However, a basic understanding of [IPv4 classless inter-domain routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation) notation is necessary to successfully modify the example addresses provided.
 
@@ -29,7 +29,7 @@ This how-to is about building a test lab on bare-metal hardware. To follow this 
 
 1. A functional computer with an AMD64 compatible multi-core CPU, 16GB of RAM, a supported network card (on-board or expansion card), and around 500GB of bootable storage. The form-factor does not matter, and many desktops, laptops, and rack-mount servers meet or vastly exceed these requirements.
 
-  - You will need to know how to get your selected computer to boot from USB. This can be slightly different on every machine, but often involves pressing the Escape, Delete, or Function keys immediately after turning the machine on. A quick search on the internet for your computer’s model name with the phrase “boot from USB” will usually lead to the correct procedure.
+    - You will need to know how to get your selected computer to boot from USB. This can be slightly different on every machine, but often involves pressing the Escape, Delete, or Function keys immediately after turning the machine on. A quick search on the internet for your computer’s model name with the phrase “boot from USB” will usually lead to the correct procedure.
 
 2. A USB flash drive with at least 16GB of storage and the Ubuntu Server 22.04 ISO written to it. Follow a tutorial like [this one](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview), which also has links for Windows and Mac OS users.
 
@@ -41,35 +41,35 @@ The following information will be necessary to complete the installation:
 
 1. The configuration information for your existing functional network, including the subnet address, mask, gateway address, and at least one resolver address.
 
-  - This how-to uses 192.0.2.0 for the existing subnet address, a 24-bit network mask (255.255.255.0), a gateway of 192.0.2.1, and resolvers of 192.0.2.2 and 192.0.2.3. Substitute your existing network configuration information anywhere you encounter these values throughout this document.
+    - This how-to uses 192.0.2.0 for the existing subnet address, a 24-bit network mask (255.255.255.0), a gateway of 192.0.2.1, and resolvers of 192.0.2.2 and 192.0.2.3. Substitute your existing network configuration information anywhere you encounter these values throughout this document.
 
 2. The available IPv4 addresses on your existing network you will be using for the test lab. A group of 16 addresses will be adequate for most use cases. A range that matches a CIDR boundary is recommended.
 
-  - This how-to uses 192.0.2.16 through 192.0.2.31 for this purpose, which can be referenced using CIDR notation as 192.0.2.16/28, making firewall rules easier. Substitute the available addresses you have chosen anywhere you encounter these addresses throughout this document.
+    - This how-to uses 192.0.2.16 through 192.0.2.31 for this purpose, which can be referenced using CIDR notation as 192.0.2.16/28, making firewall rules easier. Substitute the available addresses you have chosen anywhere you encounter these addresses throughout this document.
 
 3. Network address information for a second (new) network that will function behind network address translation (NAT). 
 
-  - This how-to uses 198.51.100.0/24 for this network. Substitute your network information for this subnet anywhere you encounter 198.51.100.0/24 addresses in this document.
+    - This how-to uses 198.51.100.0/24 for this network. Substitute your network information for this subnet anywhere you encounter 198.51.100.0/24 addresses in this document.
 
 4. Network address information for a third (new) network that will be isolated from the internet for internal-only communication.
 
-  - This how-to uses 203.0.113.0/24 for this network. Substitute your network information for this subnet anywhere you encounter 203.0.113.0/24 addresses in this document.
+    - This how-to uses 203.0.113.0/24 for this network. Substitute your network information for this subnet anywhere you encounter 203.0.113.0/24 addresses in this document.
 
 5. Your name.
 
-  - This how-to uses the fictitious name “Test User” throughout the document, and you should substitute your name anywhere you encounter the name “Test User” throughout this document.
+    - This how-to uses the fictitious name “Test User” throughout the document, and you should substitute your name anywhere you encounter the name “Test User” throughout this document.
 
 6. A hostname for your test lab server.
 
-  - This how-to uses the hostname of homelab throughout the document, and you should substitute your chosen hostname anywhere you encounter the hostname homelab throughout this document.
+    - This how-to uses the hostname of homelab throughout the document, and you should substitute your chosen hostname anywhere you encounter the hostname homelab throughout this document.
 
 7. The local Linux username and password you intend to login with.
 
-  - This how-to uses the Linux username of testuser throughout the document, which should not be confused with the Launchpad username. You should substitute your chosen Linux username anywhere you encounter the username testuser throughout this document. Common usernames like “admin” or “administrator” are discouraged. The fictitious password of “YourPassword” is used throughout this document and must be changed to a strong password of your choice to be secure.
+    - This how-to uses the Linux username of testuser throughout the document, which should not be confused with the Launchpad username. You should substitute your chosen Linux username anywhere you encounter the username testuser throughout this document. Common usernames like “admin” or “administrator” are discouraged. The fictitious password of “YourPassword” is used throughout this document and must be changed to a strong password of your choice to be secure.
 
 8. A Launchpad username that has been [setup with SSH public keys](https://help.launchpad.net/YourAccount/CreatingAnSSHKeyPair).
 
-  - This how-to uses the username launchpad-testuser throughout the document, which should not be confused with the Linux username. You should substitute your chosen Launchpad username anywhere you encounter the username launchpad-testuser throughout this document.
+    - This how-to uses the username launchpad-testuser throughout the document, which should not be confused with the Linux username. You should substitute your chosen Launchpad username anywhere you encounter the username launchpad-testuser throughout this document.
 
 > NOTE: This how-to uses IPv4 address space reserved for documentation purposes in RFC 6890, including 192.0.2.0/24, 198.51.100.0/24, and 203.0.113.0/24. These addresses must be changed to appropriate address space to build a functional test lab. Public addressing serves no purpose on the second network that runs behind NAT and the third isolated network, so RFC 1918 addresses in the 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16 ranges are recommended. These are available for private use, and this how-to will walk you through setting up network address translation (NAT) that will function with these ranges. This how-to will work with or without NAT on the existing network, so long as no conflicting networks are chosen.
 
@@ -103,15 +103,15 @@ Follow these steps to install Ubuntu Server 22.04 LTS
 
 10. After choosing “Manual” for the “IPv4 Method,” you will have the option to input several values. The appropriate values should look something like this (remember to substitute your own values): 
 
-  - Subnet: 192.0.2.0/24
+    - Subnet: 192.0.2.0/24
 
-  - Address: 192.0.2.16
+    - Address: 192.0.2.16
 
-  - Gateway: 192.0.2.1
+    - Gateway: 192.0.2.1
 
-  - Name servers: 1.1.1.3,1.0.0.3
+    - Name servers: 1.1.1.3,1.0.0.3
 
-  - Search domains: Blank
+    - Search domains: Blank
 
 11. Select “Save” and press Enter.
 
@@ -129,15 +129,15 @@ Follow these steps to install Ubuntu Server 22.04 LTS
 
 18. On the “Profile setup” screen, enter the following values (remember to substitute your own values):
 
-  - Your name: Test User
+    - Your name: Test User
 
-  - Your server’s name: homelab
+    - Your server’s name: homelab
 
-  - Pick a username: testuser
+    - Pick a username: testuser
 
-  - Password: YourPassword
+    - Password: YourPassword
 
-  - Confirm your password: YourPassword
+    - Confirm your password: YourPassword
 
 19. Select “Done” and press Enter.
 
