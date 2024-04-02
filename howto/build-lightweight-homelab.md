@@ -8,6 +8,8 @@ order: 2
 
 > NOTE: This how-to is still in active development and will be updated with significant additions in March and April 2024. It was committed for publication so that certain interested parties could see it in the present condition. Sections marked with TODO are still in early draft stages.
 
+Update: Portions of the final lab have been pushed to GitHub on the [High-Availability Lab on Ubuntu Linux project](https://github.com/bradley-coder7/ha-ubuntu-lab).
+
 ## Introduction
 
 This how-to guide walks you through building an extremely lightweight test lab (or homelab). There are many ways to build and run a test lab, and all have their pros and cons, and some labs are more or less suitable for differet applications. This variation can run very well on an inexpensive spare workstation and easily handle several virtual machines. The how-to was built on a refurbished machine with a 4-core Intel I7 processor, 32 GB of RAM, a PCIe 2.5GbE network card, and 1.5TB of storage drives. For a fuller explanation of the design decisions for this particular setup, see the separate article titled [Designing My Homelab Configuration](https://bradley-coder7.github.io/ubuntu,/homelab/2024/03/27/designing-homelab.html).
